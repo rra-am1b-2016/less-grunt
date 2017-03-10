@@ -65,15 +65,27 @@ zorg voor variaties in je div's
 */
 
 // 3. Guarded Mixins
-.guarded-mixin {
+.guarded-mixin (@borderThickness) when (@borderThickness > 20px) {
+  width: 400px;
+  height: 400px;
+  border: @borderThickness solid orange;  
+}
+.guarded-mixin (@borderThickness) when (@borderThickness <= 20px) and (@borderThickness > 10px) {
+  width: 80px;
+  height: 80px;
+  border: @borderThickness solid darken(orange, 20%);  
+}
+.guarded-mixin (@borderThickness) when (@borderThickness <= 10px) {
   width: 200px;
   height: 200px;
-  border: 20px solid orange;
+  border: @borderThickness solid lighten(orange, 20%);  
+}
+.guarded-mixin(@_) {
   background-color: lightgrey;
   color: #ffffff;
 }
 
 
 #div-id {
-  //.guarded-mixin;
+  .guarded-mixin(9px);
 }
