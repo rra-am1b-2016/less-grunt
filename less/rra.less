@@ -1,6 +1,79 @@
-@color: #ffff11;
+// 1. Variables
 
-#content
+@color: #eeeeee;
+@thickness: 2em;
+@padding: 1em + 1em;
+@size: 100px;
+@unit: "em";
+
+// 2. Mixins
+
+// We gaan nu een mixin maken
+.mixinBorder()
 {
-   border: 5px solid @color;
+   border: @color solid @thickness ;
+}
+
+
+#content-4
+{
+   .mixinBorder();
+}
+
+.contentMixin(@size: 50px, @percentage: 20%, @f-size: 1, @unit: px)
+{
+   width: @size;
+   height: @size;
+   background-color: @color;
+   border: @thickness solid darken(@color, @percentage);
+   font-family: 'Trebuchet MS';
+   font-size: ~"@{f-size}@{unit}";
+   color: darken(@color, 50%);
+   padding: @padding;
+   margin-bottom: 1em;
+}
+
+
+
+#content-1
+{
+  .contentMixin(50px, 5%, 2, em);
+}
+
+#content-2
+{
+   .contentMixin(75px, 40%, 1.5em);
+}
+
+#content-3
+{
+   .contentMixin(100px, 60%, 0.25em);
+}
+
+/*
+   Maak vijf divs en geef deze een
+   1. width
+   2. height
+   3. background-color
+   4. borderColor
+   5. font 
+   6. font-size
+   7. color
+
+zorg voor variaties in je div's
+
+*/
+
+// 3. Guarded Mixins
+.guarded-mixin {
+  width: 200px;
+  height: 200px;
+  border: 20px solid orange;
+  background-color: lightgrey;
+  color: #ffffff;
+}
+
+
+#div-id {
+  //.guarded-mixin;
 }
