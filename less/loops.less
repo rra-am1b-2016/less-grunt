@@ -1,3 +1,5 @@
+@import "values.less";
+
 body {
    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
@@ -6,12 +8,11 @@ body {
 .loop(@counter) when (@counter >= 0) {
   .loop((@counter - 1));    // next iteration
   .test@{counter} {
-   border: (4px * @counter) solid greenyellow;
-   background-color: rgb(50,100,200) + (4px * @counter); // code for each iteration
+   border: (4px * @counter) solid @color1;
+   background-color: @color2 + (4px * @counter); // code for each iteration
    margin-bottom: 1em;
    padding: 0.5em;
   }
 }
-
 
 .loop(5); // launch the loop
