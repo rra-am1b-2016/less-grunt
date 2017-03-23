@@ -68,12 +68,14 @@ zorg voor variaties in je div's
 .guarded-mixin (@borderThickness) when (@borderThickness > 20px) {
   width: 400px;
   height: 400px;
-  border: @borderThickness solid orange;  
+  border: @borderThickness solid orange;
+  font-size: 2em;   
 }
 .guarded-mixin (@borderThickness) when (@borderThickness <= 20px) and (@borderThickness > 10px) {
   width: 80px;
   height: 80px;
-  border: @borderThickness solid darken(orange, 20%);  
+  border: @borderThickness solid darken(orange, 20%); 
+  font-size: 0.5em; 
 }
 .guarded-mixin (@borderThickness) when (@borderThickness <= 10px) {
   width: 200px;
@@ -87,5 +89,5 @@ zorg voor variaties in je div's
 
 
 #div-id {
-  .guarded-mixin(9px);
+  .guarded-mixin(19px);
 }

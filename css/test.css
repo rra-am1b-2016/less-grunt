@@ -48,9 +48,10 @@ zorg voor variaties in je div's
 
 */
 #div-id {
-  width: 200px;
-  height: 200px;
-  border: 9px solid #ffc966;
+  width: 80px;
+  height: 80px;
+  border: 19px solid #996300;
+  font-size: 0.5em;
   background-color: lightgrey;
   color: #ffffff;
 }
